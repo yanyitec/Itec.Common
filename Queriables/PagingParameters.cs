@@ -8,6 +8,16 @@ namespace Itec.Queriables
 {
     public class PagingParameters<T>
     {
-        //public Expression<Func<T,bool>>  
+        public int PageIndex { get; set; }
+        
+        public int PageSize { get; set; }
+
+        public string Asc { get; set; }
+
+        public string Desc { get; set; }
+
+        public IQuery<T> MakeQuery() {
+            return null;
+        }
     }
 }
