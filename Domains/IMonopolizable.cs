@@ -8,9 +8,9 @@ namespace Itec.Domains
     /// 可独占的实体
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IMonopolizable<T>
+    public interface IMonopolizable:IEntity
     {
-        Guid Id { get; }
+        
         /// <summary>
         /// 独占者Id
         /// </summary>

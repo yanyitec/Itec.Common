@@ -17,7 +17,7 @@ namespace Itec.Domains
         /// <summary>
         /// 修订状态
         /// </summary>
-        Modify,
+        Modifying,
         /// <summary>
         /// 冻结状态，当该记录处于审批中时，使用该值
         /// </summary>

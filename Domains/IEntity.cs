@@ -11,4 +11,5 @@ namespace Itec.Domains
         /// </summary>
         Guid Id { get; set; }
     }
+
 }

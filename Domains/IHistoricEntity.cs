@@ -8,7 +8,7 @@ namespace Itec.Domains
     /// 可以追溯历史版本的记录
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface HistoricEntity:IRecordEntity
+    public interface IHistoricEntity:IRecordEntity
     {
         /// <summary>
         /// 历史唯一Id,多个Id会对应一个UniqueId

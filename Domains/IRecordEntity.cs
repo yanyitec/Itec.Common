@@ -76,19 +76,8 @@ namespace Itec.Domains
         /// </summary>
         string ModifierJSON { get; set; }
 
-
-
         #endregion Modifier
 
         #endregion modify
-
-
-        
-
-        
-        
-
-        
-        
     }
 }

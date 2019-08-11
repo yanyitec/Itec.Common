@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="Itec.Domains.IEntity" Collapsed="true">
+    <Position X="5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\IEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Itec.Domains.IHistoricEntity" Collapsed="true">
+    <Position X="9.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAACAAAAAAAAAAAAQAAAAAAAAQAA=</HashCode>
+      <FileName>Domains\IHistoricEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Itec.Domains.INamedEntity" Collapsed="true">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Domains\NamedAndContent\INamedEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Itec.Domains.IRecordEntity" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAEAAQAABCAAAAAABEgAEAAAAgAAAAAAEAAAE=</HashCode>
+      <FileName>Domains\IRecordEntity.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RecordStatus" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Itec.Domains.ICodedEntity" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\ICodedEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Itec.Domains.IContentEntity" Collapsed="true">
+    <Position X="7.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\IContentEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Itec.Domains.ITreeNodeEntity" Collapsed="true">
+    <Position X="2.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAEQAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Domains\Tree\ITreeNodeEntity.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Parent" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Children" />
+    </ShowAsCollectionAssociation>
+  </Interface>
+  <Interface Name="Itec.Domains.IMonopolizable" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQCAAAAAAAQgAAAAAAAAAAAIIAAAAgACAAAAAAAAAA=</HashCode>
+      <FileName>Domains\IMonopolizable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Itec.Domains.RecordStates" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAEAAAAGAAAAAAEAAAAAAAAAAAAAAgAAAgAAA=</HashCode>
+      <FileName>Domains\RecordStates.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
