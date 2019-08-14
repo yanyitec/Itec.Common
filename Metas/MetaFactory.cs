@@ -18,16 +18,16 @@ namespace Itec.Metas
         public MetaClass GetClass(Type type) {
             return _Classes.GetOrAdd(type.GUID,(k)=> {
                 var t = MetaClassType.MakeGenericType(type);
-                Func<JObject> configGetter = () => this.LoadConfig(type);
-                return Activator.CreateInstance(t, configGetter,this) as MetaClass;
+                //Func<JObject> configGetter = () => this.LoadConfig(type);
+                return Activator.CreateInstance(t,this) as MetaClass;
             });
         }
 
         public MetaClass<T> GetClass<T>() {
             return _Classes.GetOrAdd(typeof(T).GUID, (k) => {
                 var t = MetaClassType.MakeGenericType(typeof(T));
-                Func<JObject> configGetter = () => this.LoadConfig(typeof(T));
-                return Activator.CreateInstance(t,  configGetter,this) as MetaClass;
+                //Func<JObject> configGetter = () => this.LoadConfig(typeof(T));
+                return Activator.CreateInstance(t,this) as MetaClass;
             }) as MetaClass<T>;
         }
 

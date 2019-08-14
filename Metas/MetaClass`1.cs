@@ -9,7 +9,7 @@ namespace Itec.Metas
     public class MetaClass<T> : MetaClass, IEnumerable<IMetaProperty<T>>, IMetaClass<T>
     //where T : class
     {
-        public MetaClass(Func<JObject> configGetter=null) : base(typeof(T), configGetter) {
+        public MetaClass(IMetaFactory factory) : base(typeof(T), factory) {
             
         }
         

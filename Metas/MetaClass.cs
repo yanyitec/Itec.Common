@@ -11,9 +11,9 @@ namespace Itec.Metas
 {
     public class MetaClass : IEnumerable<IMetaProperty>, IMetaClass
     {
-        public MetaClass(Type type,Func<JObject> configGetter = null,IMetaFactory factory=null) {
+        public MetaClass(Type type,IMetaFactory factory=null) {
             this.Type = type;
-            this.GetConfig = configGetter;
+            //this.GetConfig = configGetter;
             this.Factory = factory;
         }
         public IMetaFactory Factory { get; private set; }

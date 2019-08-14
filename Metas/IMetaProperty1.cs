@@ -1,8 +1,8 @@
 ﻿namespace Itec.Metas
 {
-    public interface IMetaProperty<T>
+    public interface IMetaProperty<T>:IMetaProperty
     {
-        IMetaClass<T> Class { get; }
+        new IMetaClass<T> Class { get; }
 
         object GetValue(T instance);
         void SetValue(T instance, object value);

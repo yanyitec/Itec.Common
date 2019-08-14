@@ -1,6 +1,7 @@
 ﻿
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -48,6 +49,25 @@ namespace Itec.Metas
             if (_nullable == false) _NonullableType = _PropertyType;
             else _NonullableType = _PropertyType.GetGenericArguments()[0];
             _nullChecker = CheckNull.GetChecker(_PropertyType);
+
+            if (this._PropertyType.IsAssignableFrom(typeof(IEnumerable))) {
+                foreach (var ifc in this._PropertyType.GetInterfaces()) {
+                    if (ifc.Name.StartsWith("System.IEnumerable"))
+                    {
+                        this._IsEnumerable = true;
+                    }
+                    else if (ifc.Name.StartsWith("System.IEnumerable<"))
+                    {
+                        this._EnumerableItemType = ifc.GetGenericArguments()[0];
+                    }
+                    else if (ifc.Name.StartsWith("System.IDictionary<")) {
+                        this._IsDictionary = true;
+                        var kvts = ifc.GetGenericArguments()[0].GetGenericArguments();
+                        this._DictionaryKeyType = kvts[0];
+                        this._DictionaryValueType = kvts[1];
+                    }
+                }
+            }
         }
         bool? _nullable;
         public bool Nullable {
@@ -70,10 +90,113 @@ namespace Itec.Metas
                 {
                     lock (this)
                     {
-                        MakePropertyType();
+                        if (_NonullableType == null) {
+                            MakePropertyType();
+                        }
+                        
                     }
                 }
                 return _NonullableType;
+            }
+        }
+        bool? _IsEnumerable;
+        public bool IsEnumerable
+        {
+            get
+            {
+                if (_IsEnumerable == null)
+                {
+                    lock (this)
+                    {
+                        if (_IsEnumerable == null)
+                        {
+                            MakePropertyType();
+                        }
+
+                    }
+                }
+                return _IsEnumerable.Value;
+            }
+        }
+
+        Type _EnumerableItemType;
+        
+        public Type EnumerableItemType
+        {
+            get
+            {
+                if (_EnumerableItemType == null)
+                {
+                    lock (this)
+                    {
+                        if (_EnumerableItemType == null) {
+                            MakePropertyType();
+                        }
+                        
+                    }
+                }
+                return _EnumerableItemType == typeof(void)?null:this._EnumerableItemType;
+            }
+        }
+        bool? _IsDictionary;
+        public bool IsDictionary
+        {
+            get
+            {
+                if (_IsDictionary == null)
+                {
+                    lock (this)
+                    {
+                        if (_IsDictionary == null)
+                        {
+                            MakePropertyType();
+                        }
+
+                    }
+                }
+                return _IsDictionary.Value;
+            }
+        }
+
+        Type _DictionaryKeyType;
+
+        public Type DictionaryKeyType
+        {
+            get
+            {
+                if (_DictionaryKeyType == null)
+                {
+                    lock (this)
+                    {
+                        if (_DictionaryKeyType == null)
+                        {
+                            MakePropertyType();
+                        }
+
+                    }
+                }
+                return _DictionaryKeyType == typeof(void) ? null : this._DictionaryKeyType;
+            }
+        }
+
+        Type _DictionaryValueType;
+
+        public Type DictionaryValueType
+        {
+            get
+            {
+                if (_DictionaryValueType == null)
+                {
+                    lock (this)
+                    {
+                        if (_DictionaryValueType == null)
+                        {
+                            MakePropertyType();
+                        }
+
+                    }
+                }
+                return _DictionaryValueType == typeof(void) ? null : this._DictionaryValueType;
             }
         }
 
